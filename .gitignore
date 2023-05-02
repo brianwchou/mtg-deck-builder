@@ -1,7 +1,6 @@
 ## backend
 backend/node_modules
 
-
 ## web
 web/node_modules
 web/*.pnp
@@ -24,5 +23,6 @@ web/npm-debug.log*
 web/yarn-debug.log*
 web/yarn-error.log*
 
+/.vscode
 
 yarn-error.log

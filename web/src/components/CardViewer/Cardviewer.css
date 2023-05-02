@@ -1,0 +1,6 @@
+.card-view {
+  display: block;
+  max-height: 360px;
+  min-width: 0;
+  object-fit: scale-down;
+}

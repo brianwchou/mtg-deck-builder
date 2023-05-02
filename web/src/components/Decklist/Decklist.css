@@ -1,0 +1,27 @@
+.decklist-column {
+  display: flex;
+  flex-direction: column;
+  max-width: 20em;
+}
+
+.decklist-row {
+  display: inline-flex;
+  max-width: 100%;
+  min-width: 0;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.decklist-item {
+  width: fit-content;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.textbox {
+  text-align: left;
+}
+
+.manacost {
+  text-align: right;
+}
