@@ -1,13 +1,15 @@
 .decklist-column {
   display: flex;
   flex-direction: column;
-  max-width: 20em;
+  max-width: 17em;
 }
 
 .decklist-row {
   display: inline-flex;
   max-width: 100%;
   min-width: 0;
+  flex-basis: 1;
+  flex-grow: 1;
   gap: 8px;
   align-items: flex-start;
 }
@@ -18,10 +20,17 @@
   padding-bottom: 4px;
 }
 
+.count {
+  flex-grow: 0;
+}
+
 .textbox {
   text-align: left;
+  flex-grow: 1;
 }
 
 .manacost {
   text-align: right;
+  flex-grow: 1;
+  white-space: nowrap;
 }

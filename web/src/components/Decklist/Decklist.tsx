@@ -11,7 +11,8 @@ const DeckListRow = ({ item }: { item: CardData }) => {
   };
   return (
     <div className="border decklist-row">
-      <div className="decklist-item">{item.name}</div>
+      <div className="decklist-item count">1</div>
+      <div className="decklist-item textbox">{item.name}</div>
       <div className="decklist-item manacost">{item.mana_cost}</div>
       <button className="decklist-item" onClick={removeCardOnClick}>
         -
@@ -21,14 +22,21 @@ const DeckListRow = ({ item }: { item: CardData }) => {
 };
 
 // Deck group
-const DeckGroup = () => {
-  return <div>Groups</div>;
-};
-
-export function Decklist({ cards }: { cards: CardData[] }) {
-  const list = cards.map((item, index) => {
+const DeckGroup = ({ list }: { list: CardData[] }) => {
+  const cardlist = list.map((item, index) => {
     return <DeckListRow key={index} item={item} />;
   });
+  return (
+    <>
+      <div className="decklist-column">
+        <div>Groups | number of cards: {cardlist.length}</div>
+        {cardlist}
+      </div>
+    </>
+  );
+};
 
-  return <div className="decklist-column">{list}</div>;
+// soring scheme
+export function Decklist({ cards }: { cards: CardData[] }) {
+  return <DeckGroup list={cards}></DeckGroup>;
 }
