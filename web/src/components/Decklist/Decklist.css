@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   max-width: 17em;
+  margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 .decklist-row {
@@ -33,4 +35,10 @@
   text-align: right;
   flex-grow: 1;
   white-space: nowrap;
+}
+
+.decklist {
+  flex-grow: 2;
+  flex-shrink: 1;
+  column-count: 2;
 }

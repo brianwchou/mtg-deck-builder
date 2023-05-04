@@ -3,7 +3,7 @@ import { DeckDispatchContext } from "../../DeckContext";
 import { CardData } from "../../testdata";
 import "./Decklist.css";
 
-const DeckListRow = ({ item }: { item: CardData }) => {
+const DeckListRow = ({ card }: { card: CardData }) => {
   const dispatch = useContext(DeckDispatchContext);
   const removeCardOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     console.log(event.currentTarget.parentElement?.dataset[""]);
@@ -12,8 +12,8 @@ const DeckListRow = ({ item }: { item: CardData }) => {
   return (
     <div className="border decklist-row">
       <div className="decklist-item count">1</div>
-      <div className="decklist-item text">{item.name}</div>
-      <div className="decklist-item manacost">{item.mana_cost}</div>
+      <div className="decklist-item text">{card.name}</div>
+      <div className="decklist-item manacost">{card.mana_cost}</div>
       <button className="decklist-item" onClick={removeCardOnClick}>
         -
       </button>
@@ -57,27 +57,27 @@ function groupCards(list: CardData[]) {
       }
     },
     {
+      planeswalkers: [] as CardData[],
+      creatures: [] as CardData[],
+      sorceries: [] as CardData[],
+      instants: [] as CardData[],
       artifacts: [] as CardData[],
       enchantments: [] as CardData[],
-      instants: [] as CardData[],
-      sorceries: [] as CardData[],
-      planeswalkers: [] as CardData[],
       lands: [] as CardData[],
-      creatures: [] as CardData[],
       other: [] as CardData[],
     }
   );
 }
 
 const DeckGroup = ({ name, list }: { name: string; list: CardData[] }) => {
-  const cardlist = list.map((item, index) => {
-    return <DeckListRow key={index} item={item} />;
+  const cardlist = list.map((card, index) => {
+    return <DeckListRow key={index} card={card} />;
   });
   return (
     <>
       <div className="decklist-column">
         <div>
-          {name.toUpperCase()} | number of cards: {cardlist.length}
+          {name.toUpperCase()} ({cardlist.length})
         </div>
         {cardlist}
       </div>
@@ -92,5 +92,5 @@ export function Decklist({ cards }: { cards: CardData[] }) {
     return <DeckGroup key={index} name={name} list={cards}></DeckGroup>;
   });
 
-  return <div>{groups}</div>;
+  return <div className={"deck-list"}>{groups}</div>;
 }

@@ -12,14 +12,14 @@ export function Search() {
   const dispatch = useContext(DeckDispatchContext);
   const [searchBoxText, setSearchBoxText] = useState("");
   const [filterColors, setFilterColors] = useState("");
-  const [cardType, setCardType] = useState("");
+  // const [cardType, setCardType] = useState("");
 
   const getCards = async (event: React.FormEvent) => {
     event.preventDefault();
 
     let searchCardNameURL = filteredSearchURL + searchBoxText;
 
-    searchCardNameURL += cardType ? `+t:${cardType}` : "";
+    // searchCardNameURL += cardType ? `+t:${cardType}` : "";
 
     searchCardNameURL += filterColors ? `+c:${filterColors}` : "";
 
@@ -58,6 +58,7 @@ export function Search() {
               set_name: data.set_name,
               toughness: data.toughness,
               type_line: data.type_line,
+              count: 1,
             };
           });
           console.log(cards);
@@ -86,10 +87,10 @@ export function Search() {
     setSearchBoxText(input);
   };
 
-  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const cardtype = event.target.value;
-    setCardType(cardtype);
-  };
+  // const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const cardtype = event.target.value;
+  //   setCardType(cardtype);
+  // };
 
   return (
     <form onSubmit={getCards}>
@@ -138,7 +139,7 @@ export function Search() {
           style={manaSymbolStyle}
         />
       </span>
-      <select onChange={handleSelect}>
+      {/* <select onChange={handleSelect}>
         <option value="">Choose A Card Type</option>
         <option value="artifact">Artifact</option>
         <option value="creature">Creature</option>
@@ -147,7 +148,7 @@ export function Search() {
         <option value="sorcery">Sorcery</option>
         <option value="planeswalker">Planeswalker</option>
         <option value="land">Land</option>
-      </select>
+      </select> */}
     </form>
   );
 }

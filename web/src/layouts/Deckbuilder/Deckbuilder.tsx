@@ -1,13 +1,15 @@
 import { Navbar } from "../../components/Navbar";
 import Toolbar from "../../components/Toolbar";
 import { DeckMainContent } from "../../containers/DeckMainContent/DeckMainContent";
+import Footer from "../../containers/Footer/Footer";
 
 export function Deckbuilder() {
   return (
-    <div>
+    <div className={"main-content"}>
       <Navbar></Navbar>
       <Toolbar></Toolbar>
       <DeckMainContent></DeckMainContent>
+      <Footer></Footer>
     </div>
   );
 }
