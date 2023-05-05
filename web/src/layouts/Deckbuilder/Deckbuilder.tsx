@@ -1,7 +1,7 @@
 import { Navbar } from "../../components/Navbar";
 import Toolbar from "../../components/Toolbar";
-import { DeckMainContent } from "../../containers/DeckMainContent/DeckMainContent";
-import Footer from "../../containers/Footer/Footer";
+import DeckMainContent from "../../containers/DeckMainContent";
+import Footer from "../../containers/Footer";
 
 export function Deckbuilder() {
   return (

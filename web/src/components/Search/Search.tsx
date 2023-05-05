@@ -36,7 +36,7 @@ export function Search() {
       })
       .then((json) => {
         if (json) {
-          var cards = json.data.map((data: CardData) => {
+          const cards = json.data.map((data: CardData) => {
             return {
               layout: data.layout,
               lang: data.lang,
@@ -61,14 +61,9 @@ export function Search() {
               count: 1,
             };
           });
-          console.log(cards);
-          // dispatch(loadSearchCards(cards));
+          dispatch({ type: "ADD", payload: cards });
         }
       });
-
-    console.log(foundCards);
-
-    // dispatch(getCardSearchData(searchCardNameURL));
   };
 
   const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {

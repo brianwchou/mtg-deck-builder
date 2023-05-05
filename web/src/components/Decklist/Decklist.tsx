@@ -6,11 +6,12 @@ import "./Decklist.css";
 const DeckListRow = ({ card }: { card: CardData }) => {
   const dispatch = useContext(DeckDispatchContext);
   const removeCardOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(event.currentTarget.parentElement?.dataset[""]);
-    dispatch({ type: "REMOVE", payload: "" });
+    console.log(card);
+    // console.log(event.currentTarget.parentElement?.dataset[""]);
+    dispatch({ type: "REMOVE", payload: [card] });
   };
   return (
-    <div className="border decklist-row">
+    <div className="border decklist-row" data-id={card.id}>
       <div className="decklist-item count">1</div>
       <div className="decklist-item text">{card.name}</div>
       <div className="decklist-item manacost">{card.mana_cost}</div>

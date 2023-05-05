@@ -11,7 +11,7 @@ export function DeckMainContent() {
       <div>
         <h1>{deck.deckName}</h1>
       </div>
-      <div className="main-content-layout">
+      <div className="main-content-container">
         <Cardviewer commander={deck.commander}></Cardviewer>
         <Decklist cards={deck.cards} />
       </div>

@@ -7,20 +7,19 @@ import toshiro, { Deck } from "./testdata";
 const cardReducer: Reducer<Deck, DeckAction> = (deck, action) => {
   switch (action.type) {
     case "ADD":
-      deck.cards = [...deck.cards, action.payload];
+      deck.cards = [...deck.cards, ...action.payload];
     case "REMOVE":
-      const removeAt = deck.cards.findIndex(action.payload);
-      deck.cards = [
-        ...deck.cards.slice(0, removeAt - 1),
-        ...deck.cards.slice(removeAt),
-      ];
+      deck.cards = deck.cards.filter((card) => {
+        return !action.payload.some((toDelete) => {
+          return toDelete.id === card.id;
+        });
+      });
   }
-  return deck;
+  return { ...deck };
 };
 
 function App() {
   const [deck, deckDispatch] = useReducer(cardReducer, toshiro);
-
   return (
     <div className="App border">
       <DeckContext.Provider value={deck}>

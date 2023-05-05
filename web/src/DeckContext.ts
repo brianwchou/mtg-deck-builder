@@ -3,7 +3,7 @@ import { CardData, Deck } from "./testdata";
 
 export type DeckAction = {
   type: string;
-  payload: any;
+  payload: CardData[];
 };
 
 export const DeckContext = createContext<Deck>({
