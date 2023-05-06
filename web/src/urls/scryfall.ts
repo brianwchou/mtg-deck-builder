@@ -6,4 +6,4 @@ export const exactSearchURL = searchURL + "?exact=";
 export const fuzzySearchURL = searchURL + "?fuzzy=";
 export const filteredSearchURL = listURL + "?q=";
 
-const autoCompleteURL = baseURL + `/cards/autocomplete?q=${""}`;
+export const autoCompleteURL = baseURL + `/cards/autocomplete?q=${""}`;

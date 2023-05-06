@@ -5,17 +5,20 @@ import { DeckAction, DeckContext, DeckDispatchContext } from "./DeckContext";
 import toshiro, { Deck } from "./testdata";
 
 const cardReducer: Reducer<Deck, DeckAction> = (deck, action) => {
+  const result = { ...deck };
   switch (action.type) {
     case "ADD":
-      deck.cards = [...deck.cards, ...action.payload];
+      result.cards = [...result.cards, ...action.payload];
+      break;
     case "REMOVE":
-      deck.cards = deck.cards.filter((card) => {
+      result.cards = result.cards.filter((card) => {
         return !action.payload.some((toDelete) => {
           return toDelete.id === card.id;
         });
       });
+      break;
   }
-  return { ...deck };
+  return result;
 };
 
 function App() {

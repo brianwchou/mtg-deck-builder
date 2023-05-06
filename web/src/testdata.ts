@@ -4,6 +4,30 @@ export type Deck = {
   cards: CardData[];
 };
 
+export type ImgURIs = {
+  small: string;
+  normal: string;
+  large: string;
+  png: string;
+  art_crop: string;
+  border_crop: string;
+};
+
+export type CardFace = {
+  object: string;
+  name: string;
+  mana_cost: string;
+  type_line: string;
+  oracle_text: string;
+  colors: string[];
+  power: string;
+  toughness: string;
+  artist: string;
+  artist_id: string;
+  illustration_id: string;
+  image_uris: ImgURIs;
+};
+
 export type CardData = {
   layout: string;
   lang: string;
@@ -14,15 +38,9 @@ export type CardData = {
   cmc: number;
   colors: string[];
   color_identity: string[];
-  image_uris: {
-    small: string;
-    normal: string;
-    large: string;
-    png: string;
-    art_crop: string;
-    border_crop: string;
-  };
+  image_uris: ImgURIs;
   set: string;
+  card_faces?: CardFace[];
   set_name: string;
   mana_cost: string;
   name: string;
